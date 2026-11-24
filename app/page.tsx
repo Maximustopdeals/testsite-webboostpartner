@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
@@ -7,7 +8,9 @@ import {
   Monitor,
   Smartphone,
   Star,
+  Sparkles,
 } from "lucide-react";
+
 import USPGrid from "@/components/USPGrid";
 import CTASection from "@/components/CTASection";
 import FAQ from "@/components/FAQ";
@@ -148,129 +151,114 @@ export default function HomePage() {
         }}
       />
 
-      {/* HERO SECTIE */}
-      <section className="relative bg-background pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-12 gap-16 items-center">
+      {/* HERO */}
+      <section className="relative isolate overflow-hidden bg-background pt-32 pb-20 sm:pt-36 sm:pb-28 lg:pt-44 lg:pb-32">
+        {/* Subtiele decoratieve achtergrond */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-40 -top-40 -z-10 h-[520px] w-[520px] rounded-full bg-accent/5 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-48 -left-40 -z-10 h-[500px] w-[500px] rounded-full bg-brand/5 blur-3xl"
+        />
+
+        <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
+          {/* Linkerkolom */}
           <div className="lg:col-span-7">
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight mb-6">
-              <span className="block text-brand-accessible italic mb-2">
-                Webdesign Rotterdam
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-border-subtle bg-white/70 px-4 py-2 shadow-sm">
+              <span className="flex h-2 w-2 rounded-full bg-accent" />
+              <span className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-brand">
+                Webdesign & Next.js in Rotterdam
               </span>
-              die klanten oplevert.
+            </div>
+
+            <h1 className="max-w-4xl font-serif text-5xl leading-[1.04] tracking-tight text-foreground sm:text-6xl lg:text-[76px]">
+              Webdesign Rotterdam
+              <span className="mt-2 block italic text-accent">
+                die klanten oplevert.
+              </span>
             </h1>
 
-            <p className="text-lg sm:text-xl max-w-2xl text-foreground-muted font-sans leading-relaxed mb-8">
+            <p className="mt-8 max-w-2xl font-sans text-lg leading-8 text-foreground-muted sm:text-xl">
               WebBoost Partner bouwt bliksemsnelle Next.js-websites die jouw
               vakmanschap laten zien en bezoekers omzetten in echte aanvragen.
               Geen standaard templates, maar{" "}
               <Link
                 href="/portfolio"
-                className="text-foreground underline decoration-brand decoration-2 underline-offset-4 hover:text-brand-accessible transition-colors"
+                className="font-semibold text-brand underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent"
               >
                 bewezen maatwerk
               </Link>{" "}
               met 100% eigenaarschap van de code.
             </p>
 
-            <div className="bg-background-secondary p-6 sm:p-8 rounded-sm border border-border-subtle mb-10">
-              <p className="font-sans text-xs uppercase tracking-widest text-brand-accessible font-bold mb-3">
-                Kort antwoord
-              </p>
-              <p className="text-base text-foreground-muted leading-relaxed font-sans">
-                WebBoost Partner is een Nederlands webbureau in Rotterdam dat
-                razendsnelle Next.js-websites bouwt voor ZZP en MKB. Website
-                laten maken vanaf{" "}
-                <strong className="text-foreground font-semibold">
-                  €1.950
-                </strong>
-                , 95+ PageSpeed, SEO inbegrepen, vaste prijs en{" "}
-                <strong className="text-foreground font-semibold">
-                  100% eigenaarschap
-                </strong>{" "}
-                van de code. Geen platform lock-in.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center mb-10">
+            {/* CTA's */}
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link
                 href="/contact?intent=advies"
-                className="inline-flex items-center justify-center bg-brand-accessible text-white font-sans font-medium px-8 py-4 hover:bg-brand-accessible-hover transition-all duration-300 rounded-sm"
+                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-brand px-7 py-4 font-sans text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-hover hover:shadow-card"
               >
-                Vraag gratis adviesgesprek aan{" "}
-                <ArrowRight size={18} className="ml-2" aria-hidden="true" />
+                Vraag gratis adviesgesprek aan
+                <ArrowRight
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+
+              <Link
+                href="/portfolio"
+                className="group inline-flex min-h-14 items-center justify-center gap-2 rounded-full px-6 py-4 font-sans text-sm font-semibold text-brand transition-colors hover:text-accent"
+              >
+                Bekijk gerealiseerde websites
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
               </Link>
             </div>
 
-            <div className="flex flex-col gap-4 mb-10">
-              <div className="flex items-center gap-2">
-                <div
-                  className="flex text-brand"
-                  role="img"
-                  aria-label="5 van de 5 sterren"
-                >
-                  {Array.from({ length: 5 }, (_, index) => (
-                    <Star
-                      key={index}
-                      size={16}
-                      fill="currentColor"
-                      aria-hidden="true"
-                    />
-                  ))}
-                </div>
-
-                <p className="text-sm font-medium text-foreground-muted">
-                  &quot;Binnen een week 3 nieuwe aanvragen!&quot; — Cindy,
-                  Cindy&apos;s Kraamzorg
-                </p>
+            {/* Vertrouwenspunten */}
+            <div className="mt-10 flex flex-wrap gap-x-7 gap-y-4 border-t border-border-subtle pt-7">
+              <div className="flex items-center gap-2 font-sans text-sm font-medium text-foreground">
+                <Check size={17} className="text-accent" aria-hidden="true" />
+                Vaste prijs vooraf
               </div>
-
-              <ul className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm font-medium text-foreground">
-                <li className="flex items-center gap-2">
-                  <Check
-                    size={18}
-                    className="text-brand"
-                    aria-hidden="true"
-                  />
-                  Vaste prijs vooraf
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check
-                    size={18}
-                    className="text-brand"
-                    aria-hidden="true"
-                  />
-                  <Link
-                    href="/over-mij"
-                    className="hover:text-brand-accessible transition-colors"
-                  >
-                    100% eigenaarschap
-                  </Link>
-                </li>
-              </ul>
+              <div className="flex items-center gap-2 font-sans text-sm font-medium text-foreground">
+                <Check size={17} className="text-accent" aria-hidden="true" />
+                100% eigenaarschap
+              </div>
+              <div className="flex items-center gap-2 font-sans text-sm font-medium text-foreground">
+                <Check size={17} className="text-accent" aria-hidden="true" />
+                Persoonlijk contact
+              </div>
             </div>
 
-            <div className="pt-8 border-t border-border-subtle space-y-3 text-sm text-foreground-muted font-sans">
+            {/* Diensten en interne links */}
+            <div className="mt-10 space-y-3 border-t border-border-subtle pt-7 font-sans text-sm leading-7 text-foreground-muted">
               <p>
                 <strong className="font-semibold text-foreground">
                   Diensten:
                 </strong>{" "}
                 <Link
                   href="/website-laten-maken-rotterdam"
-                  className="hover:text-brand-accessible transition-colors underline decoration-transparent hover:decoration-brand-accessible underline-offset-4"
+                  className="transition-colors hover:text-accent"
                 >
                   Website laten maken Rotterdam
                 </Link>
                 {" · "}
                 <Link
                   href="/seo-rotterdam"
-                  className="hover:text-brand-accessible transition-colors underline decoration-transparent hover:decoration-brand-accessible underline-offset-4"
+                  className="transition-colors hover:text-accent"
                 >
                   SEO Rotterdam
                 </Link>
                 {" · "}
                 <Link
                   href="/pakketten"
-                  className="hover:text-brand-accessible transition-colors underline decoration-transparent hover:decoration-brand-accessible underline-offset-4"
+                  className="transition-colors hover:text-accent"
                 >
                   Pakketten &amp; prijzen
                 </Link>
@@ -281,21 +269,21 @@ export default function HomePage() {
                 </strong>{" "}
                 <Link
                   href="/wordpress-naar-nextjs"
-                  className="hover:text-brand-accessible transition-colors underline decoration-transparent hover:decoration-brand-accessible underline-offset-4"
+                  className="transition-colors hover:text-accent"
                 >
                   WordPress naar Next.js
                 </Link>
                 {" · "}
                 <Link
                   href="/nextjs-vs-wordpress"
-                  className="hover:text-brand-accessible transition-colors underline decoration-transparent hover:decoration-brand-accessible underline-offset-4"
+                  className="transition-colors hover:text-accent"
                 >
                   Next.js vs WordPress
                 </Link>
                 {" · "}
                 <Link
                   href="/portfolio"
-                  className="hover:text-brand-accessible transition-colors underline decoration-transparent hover:decoration-brand-accessible underline-offset-4"
+                  className="transition-colors hover:text-accent"
                 >
                   Portfolio
                 </Link>
@@ -303,94 +291,144 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* RECHTERKOLOM - LIVE BEWIJS */}
-          <div className="lg:col-span-5 relative">
-            <div className="bg-white border border-border-subtle p-8 sm:p-10 shadow-soft rounded-sm">
-              <div className="flex items-center justify-between mb-8 pb-6 border-b border-border-subtle">
-                <p className="font-sans text-xs uppercase tracking-widest text-foreground-muted font-bold">
-                  Live Bewijs
-                </p>
-                <span className="inline-flex items-center gap-2 bg-[#F0FDF4] text-green-700 font-medium text-xs px-3 py-1 rounded-full border border-green-200">
-                  <span
-                    className="w-2 h-2 bg-green-500 rounded-full animate-pulse"
-                    aria-hidden="true"
-                  />
-                  Geverifieerd
-                </span>
+          {/* Rechterkolom: prestaties */}
+          <div className="relative lg:col-span-5">
+            <div className="absolute -right-4 -top-5 hidden h-24 w-24 rounded-full border border-accent/20 sm:block" />
+
+            <div className="relative overflow-hidden rounded-[28px] border border-border-subtle bg-white p-7 shadow-card sm:p-9">
+              <div className="mb-8 flex items-center justify-between border-b border-border-subtle pb-6">
+                <div>
+                  <p className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-foreground-muted">
+                    Resultaat in de praktijk
+                  </p>
+                  <h2 className="mt-2 font-serif text-2xl text-foreground">
+                    Snelheid die u kunt zien.
+                  </h2>
+                </div>
+                <div className="grid h-11 w-11 place-items-center rounded-full bg-accent/10 text-accent">
+                  <Sparkles size={21} aria-hidden="true" />
+                </div>
               </div>
 
-              <div className="flex items-end gap-10 mb-8 pb-8 border-b border-border-subtle">
-                <div>
-                  <div className="flex items-center gap-2 text-foreground-muted mb-2">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-2xl bg-background p-5">
+                  <div className="mb-4 flex items-center gap-2 text-foreground-muted">
                     <Monitor size={16} aria-hidden="true" />
-                    <span className="text-xs font-semibold uppercase tracking-wider">
+                    <span className="font-sans text-xs font-semibold uppercase tracking-wider">
                       Desktop
                     </span>
                   </div>
-                  <span className="font-serif text-6xl text-brand-accessible leading-none">
-                    100
-                  </span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-serif text-6xl leading-none text-brand">
+                      100
+                    </span>
+                    <span className="font-sans text-sm text-foreground-muted">
+                      /100
+                    </span>
+                  </div>
+                  <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-border-subtle">
+                    <div className="h-full w-full rounded-full bg-brand" />
+                  </div>
                 </div>
-                <div>
-                  <div className="flex items-center gap-2 text-foreground-muted mb-2">
+
+                <div className="rounded-2xl bg-background p-5">
+                  <div className="mb-4 flex items-center gap-2 text-foreground-muted">
                     <Smartphone size={16} aria-hidden="true" />
-                    <span className="text-xs font-semibold uppercase tracking-wider">
+                    <span className="font-sans text-xs font-semibold uppercase tracking-wider">
                       Mobiel
                     </span>
                   </div>
-                  <span className="font-serif text-6xl text-brand-accessible leading-none">
-                    95
-                  </span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-serif text-6xl leading-none text-brand">
+                      95
+                    </span>
+                    <span className="font-sans text-sm text-foreground-muted">
+                      /100
+                    </span>
+                  </div>
+                  <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-border-subtle">
+                    <div className="h-full w-[95%] rounded-full bg-accent" />
+                  </div>
                 </div>
               </div>
 
-              <div className="mb-8">
-                <p className="text-xs font-semibold uppercase tracking-wider text-foreground-muted mb-2">
-                  Recent project:
-                </p>
-                <h2 className="font-serif text-2xl text-foreground mb-3">
+              <div className="mt-7 rounded-2xl bg-brand p-6 text-white">
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <span className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-white/65">
+                    Recent project
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 font-sans text-[11px] font-medium text-white">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#8BD3A8]" />
+                    Geverifieerd
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-3xl text-white">
                   Marley&apos;s Kraamzorg
-                </h2>
-                <p className="text-base text-foreground-muted leading-relaxed font-sans">
-                  Volledig op maat gemaakt met een uitzonderlijk snelle laadtijd
-                  en een perfecte beoordeling.
+                </h3>
+                <p className="mt-3 font-sans text-sm leading-6 text-white/75">
+                  Volledig op maat gemaakt met een uitzonderlijk snelle
+                  laadtijd en een perfecte beoordeling.
                 </p>
+
+                <a
+                  href="https://pagespeed.web.dev/analysis?url=https://www.marleyskraamzorg.nl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-white transition-colors hover:text-[#F5B18D]"
+                >
+                  Bekijk de live score bij Google
+                  <ExternalLink size={15} aria-hidden="true" />
+                  <span className="sr-only">(opent in een nieuw tabblad)</span>
+                </a>
               </div>
 
-              <a
-                href="https://pagespeed.web.dev/analysis?url=https://www.marleyskraamzorg.nl/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full bg-background-secondary text-foreground font-medium text-sm py-3.5 rounded-sm hover:bg-border-subtle transition-colors"
+              <p className="mt-6 text-center font-sans text-xs leading-5 text-foreground-muted">
+                Gemeten PageSpeed-resultaten van het getoonde project.
+              </p>
+            </div>
+
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-5 -left-5 -z-10 h-28 w-28 rounded-full bg-accent/10 blur-2xl"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* USP'S */}
+      <USPGrid />
+
+      {/* FAQ */}
+      <section
+        className="bg-background py-24 sm:py-28"
+        aria-labelledby="faq-heading"
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
+            <div className="lg:col-span-4">
+              <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-accent">
+                Duidelijkheid vooraf
+              </p>
+              <h2
+                id="faq-heading"
+                className="font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl"
               >
-                Bekijk de live score bij Google{" "}
-                <ExternalLink size={16} aria-hidden="true" />
-                <span className="sr-only">
-                  (opent in een nieuw tabblad)
-                </span>
-              </a>
+                Veelgestelde vragen.
+              </h2>
+              <p className="mt-5 max-w-sm font-sans leading-7 text-foreground-muted">
+                Alles wat je wilt weten over samenwerken met WebBoost Partner.
+              </p>
+            </div>
+
+            <div className="lg:col-span-8">
+              <FAQ items={faqs} schemaId="home" />
             </div>
           </div>
         </div>
       </section>
 
-      <USPGrid />
-
-      {/* FAQ SECTIE */}
-      <section className="bg-background-secondary py-24 sm:py-32">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl sm:text-5xl text-foreground mb-4">
-              Veelgestelde vragen
-            </h2>
-            <p className="text-foreground-muted font-sans">
-              Alles wat je wilt weten over samenwerken met WebBoost Partner.
-            </p>
-          </div>
-          <FAQ items={faqs} schemaId="home" />
-        </div>
-      </section>
-
+      {/* CTA */}
       <CTASection />
     </>
   );
