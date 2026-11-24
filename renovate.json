@@ -1,0 +1,47 @@
+
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "timezone": "Europe/Amsterdam",
+  "schedule": [
+    "before 6am on monday"
+  ],
+  "dependencyDashboard": {
+    "enabled": true
+  },
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 5,
+  "rangeStrategy": "bump",
+  "separateMajorMinor": true,
+  "packageRules": [
+    {
+      "description": "Keep React and React DOM in sync",
+      "matchPackageNames": [
+        "react",
+        "react-dom"
+      ],
+      "groupName": "React",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "description": "Major updates require dashboard approval",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "dependencyDashboardApproval": true,
+      "automerge": false
+    },
+    {
+      "description": "Never automatically merge dependency updates",
+      "matchPackageNames": [
+        "*"
+      ],
+      "automerge": false
+    }
+  ]
+}
