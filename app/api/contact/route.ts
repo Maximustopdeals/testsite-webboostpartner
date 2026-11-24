@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { randomUUID } from "crypto";
-
-const resend = new Resend(process.env.RESEND_API_KEY || "");
 
 export const runtime = "nodejs";
 
@@ -37,13 +34,19 @@ function formatMessage(value: string): string {
 
 export async function POST(req: Request) {
   try {
-    if (!process.env.RESEND_API_KEY) {
+    const apiKey = process.env.RESEND_API_KEY;
+
+    if (!apiKey) {
       console.error("RESEND_API_KEY ontbreekt.");
+
       return NextResponse.json(
         { error: "De e-mailservice is tijdelijk niet beschikbaar." },
         { status: 500 }
       );
     }
+
+    // Resend wordt pas geïnitialiseerd wanneer een aanvraag binnenkomt.
+    const resend = new Resend(apiKey);
 
     const data = await req.formData();
 
@@ -58,12 +61,14 @@ export async function POST(req: Request) {
 
     const analyse =
       getText(data, "intentie_analyse", 3) === "JA" ? "Ja" : "Nee";
+
     const offerte =
       getText(data, "intentie_offerte", 3) === "JA" ? "Ja" : "Nee";
+
     const advies =
       getText(data, "intentie_advies", 3) === "JA" ? "Ja" : "Nee";
 
-    // Verplichte velden controleren
+    // Verplichte velden controleren.
     if (!naam || !email || !bericht) {
       return NextResponse.json(
         { error: "Vul uw naam, e-mailadres en bericht in." },
@@ -71,7 +76,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // E-mailadres controleren
+    // E-mailadres controleren.
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(email)) {
@@ -96,12 +101,15 @@ export async function POST(req: Request) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Nieuwe aanvraag WebBoost Partner</title>
         </head>
+
         <body style="margin:0;padding:32px 16px;background-color:#f7f5f1;font-family:Arial,Helvetica,sans-serif;color:#252525;">
           <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #e8e4de;">
+
             <div style="padding:28px 32px;background:#252525;color:#ffffff;">
               <p style="margin:0 0 8px;color:#d6a06b;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;">
                 WebBoost Partner
               </p>
+
               <h1 style="margin:0;font-size:24px;font-weight:600;">
                 Nieuwe websiteaanvraag
               </h1>
@@ -121,20 +129,26 @@ export async function POST(req: Request) {
                   <td style="padding:9px 0;width:145px;color:#777;">Naam</td>
                   <td style="padding:9px 0;font-weight:600;">${formatValue(naam)}</td>
                 </tr>
+
                 <tr>
                   <td style="padding:9px 0;color:#777;">Bedrijf</td>
                   <td style="padding:9px 0;">${formatValue(bedrijf)}</td>
                 </tr>
+
                 <tr>
                   <td style="padding:9px 0;color:#777;">E-mailadres</td>
                   <td style="padding:9px 0;">
-                    <a href="mailto:${escapeHtml(email)}" style="color:#a45c32;">${escapeHtml(email)}</a>
+                    <a href="mailto:${escapeHtml(email)}" style="color:#a45c32;">
+                      ${escapeHtml(email)}
+                    </a>
                   </td>
                 </tr>
+
                 <tr>
                   <td style="padding:9px 0;color:#777;">Telefoon</td>
                   <td style="padding:9px 0;">${formatValue(telefoon)}</td>
                 </tr>
+
                 <tr>
                   <td style="padding:9px 0;color:#777;">Website</td>
                   <td style="padding:9px 0;">${formatValue(websiteUrl)}</td>
@@ -162,10 +176,12 @@ export async function POST(req: Request) {
                   <td style="padding:7px 0;color:#777;">Gratis website-analyse</td>
                   <td style="padding:7px 0;font-weight:600;">${analyse}</td>
                 </tr>
+
                 <tr>
                   <td style="padding:7px 0;color:#777;">Voorstel op maat</td>
                   <td style="padding:7px 0;font-weight:600;">${offerte}</td>
                 </tr>
+
                 <tr>
                   <td style="padding:7px 0;color:#777;">Adviesgesprek</td>
                   <td style="padding:7px 0;font-weight:600;">${advies}</td>
@@ -179,6 +195,7 @@ export async function POST(req: Request) {
                   <td style="padding:7px 0;width:145px;color:#777;">Gevonden via</td>
                   <td style="padding:7px 0;">${formatValue(bron)}</td>
                 </tr>
+
                 <tr>
                   <td style="padding:7px 0;color:#777;">CTA-bron</td>
                   <td style="padding:7px 0;">${formatValue(ctaBron)}</td>
@@ -191,6 +208,7 @@ export async function POST(req: Request) {
                 Dit bericht is automatisch verzonden via het contactformulier van webboostpartner.nl.
               </p>
             </div>
+
           </div>
         </body>
       </html>
@@ -219,25 +237,23 @@ Gevonden via: ${bron || "Niet opgegeven"}
 CTA-bron: ${ctaBron || "Geen"}
     `.trim();
 
-    const { error } = await resend.emails.send(
-      {
-        from: "WebBoost Partner <info@webboostpartner.nl>",
-        to: ["info@webboostpartner.nl"],
-        replyTo: email,
-        subject: `Nieuwe aanvraag via website van ${naam}`,
-        html,
-        text: plainText,
-        headers: {
-          "Idempotency-Key": randomUUID(),
-        },
-      }
-    );
+    const { error } = await resend.emails.send({
+      from: "WebBoost Partner <info@webboostpartner.nl>",
+      to: ["info@webboostpartner.nl"],
+      replyTo: email,
+      subject: `Nieuwe aanvraag via website van ${naam}`,
+      html,
+      text: plainText,
+    });
 
     if (error) {
       console.error("Resend Error:", error);
 
       return NextResponse.json(
-        { error: "Uw aanvraag kon niet worden verzonden. Probeer het later opnieuw." },
+        {
+          error:
+            "Uw aanvraag kon niet worden verzonden. Probeer het later opnieuw.",
+        },
         { status: 500 }
       );
     }
@@ -247,7 +263,9 @@ CTA-bron: ${ctaBron || "Geen"}
     console.error("Contact API Error:", error);
 
     return NextResponse.json(
-      { error: "Er is een serverfout opgetreden. Probeer het later opnieuw." },
+      {
+        error: "Er is een serverfout opgetreden. Probeer het later opnieuw.",
+      },
       { status: 500 }
     );
   }
