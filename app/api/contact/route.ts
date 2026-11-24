@@ -1,5 +1,7 @@
+
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { randomUUID } from "crypto";
 
 export const runtime = "nodejs";
 
@@ -12,7 +14,11 @@ function escapeHtml(value: string): string {
     .replace(/'/g, "&#039;");
 }
 
-function getText(data: FormData, key: string, maxLength = 2000): string {
+function getText(
+  data: FormData,
+  key: string,
+  maxLength = 2000
+): string {
   const value = data.get(key);
 
   if (typeof value !== "string") {
@@ -45,7 +51,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Resend wordt pas geïnitialiseerd wanneer een aanvraag binnenkomt.
     const resend = new Resend(apiKey);
 
     const data = await req.formData();
@@ -68,7 +73,7 @@ export async function POST(req: Request) {
     const advies =
       getText(data, "intentie_advies", 3) === "JA" ? "Ja" : "Nee";
 
-    // Verplichte velden controleren.
+    // Verplichte velden controleren
     if (!naam || !email || !bericht) {
       return NextResponse.json(
         { error: "Vul uw naam, e-mailadres en bericht in." },
@@ -76,7 +81,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // E-mailadres controleren.
+    // E-mailadres controleren
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(email)) {
@@ -88,7 +93,10 @@ export async function POST(req: Request) {
 
     if (bericht.length < 10) {
       return NextResponse.json(
-        { error: "Uw bericht is te kort. Geef iets meer toelichting." },
+        {
+          error:
+            "Uw bericht is te kort. Geef iets meer toelichting.",
+        },
         { status: 400 }
       );
     }
@@ -116,6 +124,7 @@ export async function POST(req: Request) {
             </div>
 
             <div style="padding:32px;">
+
               <p style="margin:0 0 24px;font-size:15px;line-height:1.6;">
                 Er is een nieuw bericht ontvangen via het contactformulier van WebBoost Partner.
               </p>
@@ -201,6 +210,7 @@ export async function POST(req: Request) {
                   <td style="padding:7px 0;">${formatValue(ctaBron)}</td>
                 </tr>
               </table>
+
             </div>
 
             <div style="padding:20px 32px;background:#f7f5f1;border-top:1px solid #e8e4de;">
@@ -244,6 +254,9 @@ CTA-bron: ${ctaBron || "Geen"}
       subject: `Nieuwe aanvraag via website van ${naam}`,
       html,
       text: plainText,
+      headers: {
+        "Idempotency-Key": randomUUID(),
+      },
     });
 
     if (error) {
@@ -264,7 +277,8 @@ CTA-bron: ${ctaBron || "Geen"}
 
     return NextResponse.json(
       {
-        error: "Er is een serverfout opgetreden. Probeer het later opnieuw.",
+        error:
+          "Er is een serverfout opgetreden. Probeer het later opnieuw.",
       },
       { status: 500 }
     );
