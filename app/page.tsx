@@ -138,7 +138,7 @@ export default function HomePage() {
         }}
       />
 
-      <section className="relative overflow-hidden bg-background pb-24 pt-32 lg:pb-32 lg:pt-40">
+      <section className="relative overflow-hidden bg-background pb-20 pt-28 lg:pb-24 lg:pt-32">
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-7">
             <p className="mb-6 font-sans text-xs font-bold uppercase tracking-[0.25em] text-brand-accessible">
