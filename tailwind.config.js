@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -13,22 +14,18 @@ module.exports = {
           secondary: "#EAE3D8",
         },
         foreground: {
-          DEFAULT: "#173F35",
-          muted: "#66716B",
+          DEFAULT: "#242B28",
+          muted: "#737D89",
         },
         brand: {
           DEFAULT: "#173F35",
           hover: "#245747",
           accessible: "#173F35",
           "accessible-hover": "#245747",
-        },
-        accent: {
-          DEFAULT: "#D96B35",
-          hover: "#C45A2A",
-          soft: "#F5E5DA",
+          accent: "#D96B35",
         },
         border: {
-          subtle: "#E5E0D7",
+          subtle: "#E5DED3",
         },
       },
       fontFamily: {
@@ -39,8 +36,8 @@ module.exports = {
         tighter: "-0.02em",
       },
       boxShadow: {
-        soft: "0 8px 30px -10px rgba(23, 63, 53, 0.12)",
-        card: "0 18px 50px -20px rgba(23, 63, 53, 0.18)",
+        soft: "0 8px 30px -8px rgba(23, 63, 53, 0.10)",
+        elevated: "0 20px 50px -15px rgba(23, 63, 53, 0.16)",
       },
     },
   },
