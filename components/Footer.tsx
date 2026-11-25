@@ -1,88 +1,105 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Zap } from "lucide-react";
+import { Mail, Phone, MapPin, Zap, ArrowUpRight } from "lucide-react";
+
+const serviceLinks = [
+  {
+    href: "/website-laten-maken-rotterdam",
+    label: "Website laten maken",
+  },
+  {
+    href: "/seo-rotterdam",
+    label: "SEO Rotterdam",
+  },
+  {
+    href: "/wordpress-naar-nextjs",
+    label: "WordPress naar Next.js",
+  },
+  {
+    href: "/pakketten",
+    label: "Pakketten en tarieven",
+  },
+];
+
+const legalLinks = [
+  { href: "/privacy", label: "Privacy" },
+  { href: "/voorwaarden", label: "Voorwaarden" },
+  { href: "/cookiebeleid", label: "Cookies" },
+];
 
 export default function Footer() {
   return (
     <footer
-      className="bg-background-secondary text-foreground border-t border-border-subtle"
+      className="border-t border-border-subtle bg-background-secondary text-foreground"
       data-testid="site-footer"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 grid md:grid-cols-4 gap-12">
-        {/* LOGO & STRATEGIE FOCUS */}
-        <div className="md:col-span-2">
-          <div className="flex items-center gap-3 font-serif text-2xl mb-4 text-foreground">
-            <span className="bg-brand text-white w-10 h-10 grid place-items-center rounded-sm">
-              <Zap size={20} className="fill-current" />
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:px-8">
+
+        {/* BEDRIJFSPROFIEL */}
+        <div className="md:col-span-2 lg:pr-12">
+          <Link
+            href="/"
+            aria-label="WebBoost Partner - Home"
+            className="mb-5 inline-flex items-center gap-3 font-serif text-2xl text-foreground transition-opacity hover:opacity-80"
+          >
+            <span className="grid h-10 w-10 place-items-center rounded-sm bg-brand text-white">
+              <Zap size={20} className="fill-current" aria-hidden="true" />
             </span>
             WebBoost Partner
-          </div>
+          </Link>
 
-          <p className="text-sm text-foreground-muted max-w-sm leading-relaxed font-sans">
-            Een professionele website die écht klanten oplevert. Wij bouwen
-            bliksemsnelle, toekomstbestendige Next.js platforms voor ambitieuze
-            ondernemers in Rotterdam en omgeving.
+          <p className="max-w-md font-sans text-sm leading-7 text-foreground-muted">
+            Ik ontwerp en bouw professionele Next.js-websites voor zzp&apos;ers
+            en mkb-bedrijven in Rotterdam en omgeving. Met persoonlijke
+            begeleiding, aandacht voor detail en een technisch sterk fundament.
           </p>
+
+          <Link
+            href="/over-mij"
+            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
+          >
+            Meer over mijn werkwijze
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
         </div>
 
-        {/* DIENSTEN NAVIGATIE */}
+        {/* DIENSTEN */}
         <div>
-          <h2 className="font-sans font-semibold uppercase text-xs tracking-widest mb-5 text-brand-accessible">
-            Diensten
+          <h2 className="mb-5 font-sans text-xs font-bold uppercase tracking-[0.16em] text-brand-accessible">
+            Mijn diensten
           </h2>
 
-          <ul className="space-y-3 text-sm text-foreground-muted font-sans">
-            <li>
-              <Link
-                href="/website-laten-maken-rotterdam"
-                className="hover:text-brand transition-colors"
-              >
-                Website laten maken
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/seo-rotterdam"
-                className="hover:text-brand transition-colors"
-              >
-                SEO Rotterdam
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/wordpress-naar-nextjs"
-                className="hover:text-brand transition-colors"
-              >
-                WordPress migratie
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/pakketten"
-                className="hover:text-brand transition-colors"
-              >
-                Pakketten &amp; Tarieven
-              </Link>
-            </li>
+          <ul className="space-y-3 font-sans text-sm text-foreground-muted">
+            {serviceLinks.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="transition-colors duration-200 hover:text-brand"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* GEGEVENS & REGIO */}
+        {/* CONTACT */}
         <div>
-          <h2 className="font-sans font-semibold uppercase text-xs tracking-widest mb-5 text-brand-accessible">
+          <h2 className="mb-5 font-sans text-xs font-bold uppercase tracking-[0.16em] text-brand-accessible">
             Contact
           </h2>
 
-          <ul className="space-y-4 text-sm text-foreground-muted font-sans">
+          <ul className="space-y-5 font-sans text-sm text-foreground-muted">
             <li className="flex items-start gap-3">
               <MapPin
                 size={18}
-                className="text-brand shrink-0"
+                className="mt-0.5 shrink-0 text-brand"
                 aria-hidden="true"
               />
+
               <span>
                 Rotterdam, Nederland
-                <span className="block text-xs text-foreground-muted mt-1">
-                  Regio Rijnmond
+                <span className="mt-1 block text-xs text-foreground-muted">
+                  Werkzaam in de regio Rijnmond
                 </span>
               </span>
             </li>
@@ -90,12 +107,13 @@ export default function Footer() {
             <li className="flex items-center gap-3">
               <Phone
                 size={18}
-                className="text-brand shrink-0"
+                className="shrink-0 text-brand"
                 aria-hidden="true"
               />
+
               <a
                 href="tel:+31642628242"
-                className="hover:text-brand transition-colors"
+                className="transition-colors hover:text-brand"
                 data-testid="footer-phone"
               >
                 06-42628242
@@ -105,12 +123,13 @@ export default function Footer() {
             <li className="flex items-center gap-3">
               <Mail
                 size={18}
-                className="text-brand shrink-0"
+                className="shrink-0 text-brand"
                 aria-hidden="true"
               />
+
               <a
                 href="mailto:info@webboostpartner.nl"
-                className="hover:text-brand transition-colors break-all"
+                className="break-all transition-colors hover:text-brand"
                 data-testid="footer-email"
               >
                 info@webboostpartner.nl
@@ -120,44 +139,40 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* FOOTER BOTTOM SECTIE */}
+      {/* FOOTER ONDERZIJDE */}
       <div className="border-t border-border-subtle">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-foreground-muted font-sans">
-            <p>
-              &copy; {new Date().getFullYear()} WebBoost Partner. Alle rechten
-              voorbehouden.
-            </p>
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-6 text-center md:flex-row md:text-left lg:px-8">
 
-            <p>Built with Next.js &amp; Craftsmanship</p>
+          <p className="font-sans text-xs text-foreground-muted">
+            &copy; {new Date().getFullYear()} WebBoost Partner. Alle rechten
+            voorbehouden.
+          </p>
 
-            <div className="flex items-center gap-4">
-              <Link
-                href="/privacy"
-                className="hover:text-brand transition-colors"
-              >
-                Privacy
-              </Link>
+          <p className="font-sans text-xs text-foreground-muted">
+            Ontworpen en gebouwd met Next.js
+          </p>
 
-              <span>·</span>
+          <nav
+            aria-label="Juridische informatie"
+            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-sans text-xs text-foreground-muted"
+          >
+            {legalLinks.map((item, index) => (
+              <span key={item.href} className="inline-flex items-center gap-4">
+                {index > 0 && (
+                  <span aria-hidden="true" className="text-border-subtle">
+                    ·
+                  </span>
+                )}
 
-              <Link
-                href="/voorwaarden"
-                className="hover:text-brand transition-colors"
-              >
-                Voorwaarden
-              </Link>
-
-              <span>·</span>
-
-              <Link
-                href="/cookiebeleid"
-                className="hover:text-brand transition-colors"
-              >
-                Cookies
-              </Link>
-            </div>
-          </div>
+                <Link
+                  href={item.href}
+                  className="transition-colors hover:text-brand"
+                >
+                  {item.label}
+                </Link>
+              </span>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>
