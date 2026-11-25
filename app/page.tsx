@@ -6,8 +6,6 @@ import {
   ExternalLink,
   Monitor,
   Smartphone,
-  Star,
-  Sparkles,
 } from "lucide-react";
 
 import USPGrid from "@/components/USPGrid";
@@ -15,23 +13,24 @@ import CTASection from "@/components/CTASection";
 import FAQ from "@/components/FAQ";
 
 export const metadata: Metadata = {
-  title:
-    "Webdesign Rotterdam | Website Laten Maken | 95+ PageSpeed | WebBoost Partner",
+  title: "Webdesign Rotterdam | Persoonlijk & professioneel | WebBoost Partner",
   description:
-    "Webdesign Rotterdam en website laten maken? WebBoost Partner bouwt bliksemsnelle Next.js websites die jouw vakmanschap tonen en bezoekers omzetten in klanten. Vaste prijs, lokaal, SEO inbegrepen.",
-  alternates: { canonical: "/" },
+    "Op zoek naar professioneel webdesign in Rotterdam? Ik bouw snelle, gebruiksvriendelijke Next.js-websites voor zzp'ers en mkb. Persoonlijk contact en duidelijke prijzen.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Webdesign Rotterdam | Website Laten Maken | WebBoost Partner",
+    title: "Webdesign Rotterdam | WebBoost Partner",
     description:
-      "Bliksemsnelle Next.js websites in Rotterdam. 95+ PageSpeed, vaste prijs, meer aanvragen.",
-    url: "https://www.webboostpartner.nl",
+      "Professioneel webdesign voor zzp'ers en mkb in Rotterdam en omgeving. Persoonlijke begeleiding, doordachte techniek en duidelijke afspraken.",
+    url: "https://www.webboostpartner.nl/",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Webdesign Rotterdam | Website Laten Maken",
+    title: "Webdesign Rotterdam | WebBoost Partner",
     description:
-      "Razendsnelle Next.js websites met 95+ PageSpeed. Lokaal in Rotterdam.",
+      "Persoonlijk webdesign voor ondernemers in Rotterdam en omgeving.",
   },
 };
 
@@ -42,26 +41,92 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    q: "Wat kost een website laten maken in Rotterdam?",
-    a: "Bij WebBoost Partner start een website laten maken in Rotterdam vanaf €1.950 excl. btw. U krijgt een Next.js-website met 95+ PageSpeed, SEO inbegrepen, vaste prijs en 100% eigenaarschap van de code. Bekijk de pakketten voor een exacte prijsindicatie.",
+    q: "Wat kost professioneel webdesign in Rotterdam?",
+    a: "Mijn websitepakketten beginnen bij € 1.950 excl. btw. De uiteindelijke investering hangt af van de omvang, functionaliteit en wensen van uw website. U ontvangt vooraf een duidelijk voorstel. Bekijk de pakketten en prijzen voor meer informatie.",
   },
   {
-    q: "Krijg ik de code van mijn website in eigendom?",
-    a: "Ja. U krijgt een standalone Git-repository met alle broncode. Geen proprietary platform lock-in: u kunt de site op elk moment zelf hosten, doorgeven aan een andere developer of migreren naar Vercel. Dat is een bewuste keuze van WebBoost Partner.",
+    q: "Wat moet ik zelf aanleveren voor mijn website?",
+    a: "U levert in principe uw eigen teksten en foto's aan. Ik verzorg de structuur, vormgeving, plaatsing en technische verwerking. Heeft u nog geen geschikte webteksten? Dan kan ik het schrijven of uitgebreid redigeren daarvan als aanvullende dienst voor u verzorgen. Dit bespreek ik vooraf met u.",
   },
   {
-    q: "Werken jullie ook buiten Rotterdam?",
-    a: "Ja, WebBoost Partner werkt landelijk, met het zwaartepunt in Rotterdam en omgeving (Capelle aan den IJssel, Krimpen, Ridderkerk, Barendrecht, Schiedam). Kennismaken kan op locatie of online.",
+    q: "Krijg ik de broncode van mijn website?",
+    a: "Ja. U ontvangt de broncode van uw website in een eigen Git-repository. U bent daardoor niet afhankelijk van een gesloten websiteplatform. U kunt de website zelf laten beheren, aan een andere ontwikkelaar overdragen of naar een andere geschikte hostingomgeving verplaatsen.",
   },
   {
-    q: "Waarom Next.js en niet WordPress?",
-    a: "Next.js is sneller, veiliger en onderhoudsarmer dan WordPress. U heeft geen plugin-updates, geen openbare inlog en volledige controle over snelheid en SEO. Voor ZZP en MKB in Rotterdam die snelheid en vindbaarheid belangrijk vinden, is Next.js meestal de betere keuze. Lees de eerlijke vergelijking.",
+    q: "Waarom bouwt u met Next.js in plaats van WordPress?",
+    a: "Next.js biedt veel mogelijkheden om een snelle, op maat gemaakte website te bouwen met controle over de techniek. WordPress kan juist handig zijn wanneer u veel zelf wilt aanpassen of afhankelijk bent van bestaande plugins en integraties. Welke oplossing het beste past, hangt af van uw wensen. Ik help u graag een passende keuze te maken.",
   },
   {
-    q: "Hoe lang duurt het voordat mijn website klaar is?",
-    a: "Een gemiddelde website voor ZZP of MKB is binnen 3 tot 6 weken live. Bij een WordPress naar Next.js migratie duurt dit 2 tot 4 weken. U krijgt altijd vooraf een heldere planning met vaste prijs.",
+    q: "Werkt WebBoost Partner alleen in Rotterdam?",
+    a: "Mijn focus ligt op Rotterdam en omliggende plaatsen zoals Capelle aan den IJssel, Krimpen aan den IJssel, Ridderkerk, Barendrecht en Schiedam. Ook voor ondernemers buiten deze regio bespreek ik graag de mogelijkheden. Contact kan online of, waar passend, op locatie.",
+  },
+  {
+    q: "Hoe lang duurt het bouwen van een website?",
+    a: "De doorlooptijd hangt af van het aantal pagina's, de gewenste functionaliteiten en hoe snel teksten en foto's beschikbaar zijn. Vooraf bespreek ik de planning en de verschillende stappen, zodat u weet waar u aan toe bent.",
   },
 ];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.webboostpartner.nl/#service",
+      name: "WebBoost Partner",
+      image: "https://www.webboostpartner.nl/og.jpg",
+      url: "https://www.webboostpartner.nl/",
+      priceRange: "€€",
+      description:
+        "Persoonlijk webdesign en Next.js-websiteontwikkeling voor zzp'ers en mkb-bedrijven in Rotterdam en omgeving.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Rotterdam",
+        addressCountry: "NL",
+      },
+      areaServed: [
+        {
+          "@type": "City",
+          name: "Rotterdam",
+        },
+        {
+          "@type": "City",
+          name: "Capelle aan den IJssel",
+        },
+        {
+          "@type": "City",
+          name: "Krimpen aan den IJssel",
+        },
+        {
+          "@type": "City",
+          name: "Ridderkerk",
+        },
+        {
+          "@type": "City",
+          name: "Barendrecht",
+        },
+        {
+          "@type": "City",
+          name: "Schiedam",
+        },
+      ],
+      parentOrganization: {
+        "@id": "https://www.webboostpartner.nl/#organization",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.webboostpartner.nl/#faq",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a,
+        },
+      })),
+    },
+  ],
+};
 
 export default function HomePage() {
   return (
@@ -69,365 +134,251 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Organization",
-                "@id": "https://www.webboostpartner.nl/#organization",
-                name: "WebBoost Partner",
-                url: "https://www.webboostpartner.nl",
-                logo: "https://www.webboostpartner.nl/og.jpg",
-                description:
-                  "WebBoost Partner is een Nederlands webbureau dat razendsnelle Next.js-websites bouwt voor ZZP en MKB in Rotterdam en omgeving. Vaste prijs, SEO inbegrepen, 100% eigenaarschap van de code.",
-                founder: {
-                  "@id": "https://www.webboostpartner.nl/over-mij#person",
-                },
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Rotterdam",
-                  addressCountry: "NL",
-                },
-                areaServed: [
-                  { "@type": "City", name: "Rotterdam" },
-                  { "@type": "City", name: "Capelle aan den IJssel" },
-                  { "@type": "City", name: "Krimpen aan den IJssel" },
-                  { "@type": "City", name: "Ridderkerk" },
-                  { "@type": "City", name: "Barendrecht" },
-                  { "@type": "City", name: "Schiedam" },
-                ],
-                sameAs: [
-                  "https://www.linkedin.com/company/webboostpartner",
-                  "https://www.kvk.nl/bedrijf/webboostpartner",
-                ],
-              },
-              {
-                "@type": "WebSite",
-                "@id": "https://www.webboostpartner.nl/#website",
-                url: "https://www.webboostpartner.nl",
-                name: "WebBoost Partner",
-                publisher: {
-                  "@id": "https://www.webboostpartner.nl/#organization",
-                },
-                inLanguage: "nl-NL",
-              },
-              {
-                "@type": "ProfessionalService",
-                "@id": "https://www.webboostpartner.nl/#service",
-                name: "WebBoost Partner",
-                image: "https://www.webboostpartner.nl/og.jpg",
-                url: "https://www.webboostpartner.nl",
-                priceRange: "€€",
-                description:
-                  "Webdesign en Next.js-websiteontwikkeling voor ZZP en MKB in Rotterdam. Websites met 95+ PageSpeed, SEO inbegrepen en vaste prijs.",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Rotterdam",
-                  addressCountry: "NL",
-                },
-                areaServed: {
-                  "@type": "City",
-                  name: "Rotterdam",
-                },
-                parentOrganization: {
-                  "@id": "https://www.webboostpartner.nl/#organization",
-                },
-              },
-              {
-                "@type": "FAQPage",
-                "@id": "https://www.webboostpartner.nl/#faq",
-                mainEntity: faqs.map((f) => ({
-                  "@type": "Question",
-                  name: f.q,
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: f.a,
-                  },
-                })),
-              },
-            ],
-          }),
+          __html: JSON.stringify(structuredData),
         }}
       />
 
-      {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-background pt-32 pb-20 sm:pt-36 sm:pb-28 lg:pt-44 lg:pb-32">
-        {/* Subtiele decoratieve achtergrond */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-40 -top-40 -z-10 h-[520px] w-[520px] rounded-full bg-accent/5 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-48 -left-40 -z-10 h-[500px] w-[500px] rounded-full bg-brand/5 blur-3xl"
-        />
-
-        <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-12 lg:gap-12 lg:px-8">
-          {/* Linkerkolom */}
+      <section className="relative overflow-hidden bg-background pb-24 pt-32 lg:pb-32 lg:pt-40">
+        <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-7">
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-border-subtle bg-white/70 px-4 py-2 shadow-sm">
-              <span className="flex h-2 w-2 rounded-full bg-accent" />
-              <span className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-brand">
-                Webdesign & Next.js in Rotterdam
-              </span>
-            </div>
+            <p className="mb-6 font-sans text-xs font-bold uppercase tracking-[0.25em] text-brand-accessible">
+              WebBoost Partner · Rotterdam
+            </p>
 
-            <h1 className="max-w-4xl font-serif text-5xl leading-[1.04] tracking-tight text-foreground sm:text-6xl lg:text-[76px]">
-              Webdesign Rotterdam
-              <span className="mt-2 block italic text-accent">
-                die klanten oplevert.
+            <h1 className="mb-8 font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+              Webdesign Rotterdam,
+              <span className="mt-2 block italic text-brand-accessible">
+                met aandacht voor uw onderneming.
               </span>
             </h1>
 
-            <p className="mt-8 max-w-2xl font-sans text-lg leading-8 text-foreground-muted sm:text-xl">
-              WebBoost Partner bouwt bliksemsnelle Next.js-websites die jouw
-              vakmanschap laten zien en bezoekers omzetten in echte aanvragen.
-              Geen standaard templates, maar{" "}
-              <Link
-                href="/portfolio"
-                className="font-semibold text-brand underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent"
-              >
-                bewezen maatwerk
-              </Link>{" "}
-              met 100% eigenaarschap van de code.
+            <p className="mb-10 max-w-2xl font-sans text-lg leading-relaxed text-foreground-muted sm:text-xl">
+              Ik ontwerp en bouw professionele websites voor zzp'ers en
+              mkb-bedrijven in Rotterdam en omgeving. Daarbij kijk ik niet
+              alleen naar het ontwerp, maar ook naar gebruiksgemak, snelheid,
+              vindbaarheid en de doelen van uw onderneming.
             </p>
 
-            {/* CTA's */}
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <p className="mb-10 max-w-2xl font-sans text-base leading-relaxed text-foreground-muted">
+              U heeft rechtstreeks contact met mij. Van het eerste gesprek
+              en de structuur tot het ontwerp, de technische realisatie en
+              de oplevering. Zo weet u precies wie aan uw website werkt en
+              waar u aan toe bent.
+            </p>
+
+            <div className="mb-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Link
                 href="/contact?intent=advies"
-                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-brand px-7 py-4 font-sans text-sm font-semibold text-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-hover hover:shadow-card"
+                className="inline-flex items-center justify-center gap-3 rounded-sm bg-brand-accessible px-8 py-4 font-sans text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-accessible-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
               >
-                Vraag gratis adviesgesprek aan
-                <ArrowRight
-                  size={18}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
+                Bespreek uw website
+                <ArrowRight size={18} aria-hidden="true" />
               </Link>
 
               <Link
                 href="/portfolio"
-                className="group inline-flex min-h-14 items-center justify-center gap-2 rounded-full px-6 py-4 font-sans text-sm font-semibold text-brand transition-colors hover:text-accent"
+                className="inline-flex items-center gap-2 px-2 py-3 font-sans text-sm font-semibold text-foreground transition-colors hover:text-brand-accessible"
               >
-                Bekijk gerealiseerde websites
-                <ArrowRight
-                  size={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
+                Bekijk mijn werk
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
 
-            {/* Vertrouwenspunten */}
-            <div className="mt-10 flex flex-wrap gap-x-7 gap-y-4 border-t border-border-subtle pt-7">
+            <div className="mb-10 flex flex-col gap-4 border-t border-border-subtle pt-8 sm:flex-row sm:gap-8">
               <div className="flex items-center gap-2 font-sans text-sm font-medium text-foreground">
-                <Check size={17} className="text-accent" aria-hidden="true" />
-                Vaste prijs vooraf
+                <Check
+                  size={18}
+                  className="shrink-0 text-brand-accessible"
+                  aria-hidden="true"
+                />
+                Duidelijke prijsafspraken
               </div>
+
               <div className="flex items-center gap-2 font-sans text-sm font-medium text-foreground">
-                <Check size={17} className="text-accent" aria-hidden="true" />
-                100% eigenaarschap
+                <Check
+                  size={18}
+                  className="shrink-0 text-brand-accessible"
+                  aria-hidden="true"
+                />
+                Eigen broncode
               </div>
+
               <div className="flex items-center gap-2 font-sans text-sm font-medium text-foreground">
-                <Check size={17} className="text-accent" aria-hidden="true" />
-                Persoonlijk contact
+                <Check
+                  size={18}
+                  className="shrink-0 text-brand-accessible"
+                  aria-hidden="true"
+                />
+                Rechtstreeks contact
               </div>
             </div>
 
-            {/* Diensten en interne links */}
-            <div className="mt-10 space-y-3 border-t border-border-subtle pt-7 font-sans text-sm leading-7 text-foreground-muted">
+            <div className="space-y-3 border-t border-border-subtle pt-8 font-sans text-sm leading-relaxed text-foreground-muted">
               <p>
                 <strong className="font-semibold text-foreground">
-                  Diensten:
+                  Mijn diensten:
                 </strong>{" "}
                 <Link
                   href="/website-laten-maken-rotterdam"
-                  className="transition-colors hover:text-accent"
+                  className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
                 >
-                  Website laten maken Rotterdam
+                  Website laten maken
                 </Link>
                 {" · "}
                 <Link
                   href="/seo-rotterdam"
-                  className="transition-colors hover:text-accent"
+                  className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
                 >
                   SEO Rotterdam
                 </Link>
                 {" · "}
                 <Link
                   href="/pakketten"
-                  className="transition-colors hover:text-accent"
+                  className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
                 >
-                  Pakketten &amp; prijzen
+                  Pakketten en prijzen
                 </Link>
               </p>
+
               <p>
                 <strong className="font-semibold text-foreground">
-                  Meer weten:
+                  Meer over mijn werkwijze:
                 </strong>{" "}
                 <Link
+                  href="/over-mij"
+                  className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
+                >
+                  Over mij
+                </Link>
+                {" · "}
+                <Link
                   href="/wordpress-naar-nextjs"
-                  className="transition-colors hover:text-accent"
+                  className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
                 >
                   WordPress naar Next.js
                 </Link>
                 {" · "}
                 <Link
                   href="/nextjs-vs-wordpress"
-                  className="transition-colors hover:text-accent"
+                  className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
                 >
-                  Next.js vs WordPress
-                </Link>
-                {" · "}
-                <Link
-                  href="/portfolio"
-                  className="transition-colors hover:text-accent"
-                >
-                  Portfolio
+                  Next.js versus WordPress
                 </Link>
               </p>
             </div>
           </div>
 
-          {/* Rechterkolom: prestaties */}
           <div className="relative lg:col-span-5">
-            <div className="absolute -right-4 -top-5 hidden h-24 w-24 rounded-full border border-accent/20 sm:block" />
-
-            <div className="relative overflow-hidden rounded-[28px] border border-border-subtle bg-white p-7 shadow-card sm:p-9">
+            <div className="rounded-sm border border-border-subtle bg-white p-8 shadow-soft sm:p-10">
               <div className="mb-8 flex items-center justify-between border-b border-border-subtle pb-6">
                 <div>
-                  <p className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-foreground-muted">
-                    Resultaat in de praktijk
+                  <p className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-foreground-muted">
+                    Project in de praktijk
                   </p>
-                  <h2 className="mt-2 font-serif text-2xl text-foreground">
-                    Snelheid die u kunt zien.
-                  </h2>
+                  <p className="mt-2 font-serif text-xl text-foreground">
+                    Prestaties op PageSpeed
+                  </p>
                 </div>
-                <div className="grid h-11 w-11 place-items-center rounded-full bg-accent/10 text-accent">
-                  <Sparkles size={21} aria-hidden="true" />
-                </div>
+
+                <span className="rounded-full border border-border-subtle bg-background-secondary px-3 py-1 text-xs font-medium text-foreground-muted">
+                  Projectmeting
+                </span>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl bg-background p-5">
-                  <div className="mb-4 flex items-center gap-2 text-foreground-muted">
+              <div className="mb-8 grid grid-cols-2 gap-6 border-b border-border-subtle pb-8">
+                <div>
+                  <div className="mb-3 flex items-center gap-2 text-foreground-muted">
                     <Monitor size={16} aria-hidden="true" />
                     <span className="font-sans text-xs font-semibold uppercase tracking-wider">
                       Desktop
                     </span>
                   </div>
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-serif text-6xl leading-none text-brand">
-                      100
-                    </span>
-                    <span className="font-sans text-sm text-foreground-muted">
-                      /100
-                    </span>
-                  </div>
-                  <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-border-subtle">
-                    <div className="h-full w-full rounded-full bg-brand" />
-                  </div>
+
+                  <p className="font-serif text-6xl leading-none text-brand-accessible">
+                    100
+                  </p>
+                  <p className="mt-2 font-sans text-xs text-foreground-muted">
+                    PageSpeed-score
+                  </p>
                 </div>
 
-                <div className="rounded-2xl bg-background p-5">
-                  <div className="mb-4 flex items-center gap-2 text-foreground-muted">
+                <div>
+                  <div className="mb-3 flex items-center gap-2 text-foreground-muted">
                     <Smartphone size={16} aria-hidden="true" />
                     <span className="font-sans text-xs font-semibold uppercase tracking-wider">
                       Mobiel
                     </span>
                   </div>
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-serif text-6xl leading-none text-brand">
-                      95
-                    </span>
-                    <span className="font-sans text-sm text-foreground-muted">
-                      /100
-                    </span>
-                  </div>
-                  <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-border-subtle">
-                    <div className="h-full w-[95%] rounded-full bg-accent" />
-                  </div>
+
+                  <p className="font-serif text-6xl leading-none text-brand-accessible">
+                    95
+                  </p>
+                  <p className="mt-2 font-sans text-xs text-foreground-muted">
+                    PageSpeed-score
+                  </p>
                 </div>
               </div>
 
-              <div className="mt-7 rounded-2xl bg-brand p-6 text-white">
-                <div className="mb-5 flex items-center justify-between gap-4">
-                  <span className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-white/65">
-                    Recent project
-                  </span>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 font-sans text-[11px] font-medium text-white">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#8BD3A8]" />
-                    Geverifieerd
-                  </span>
-                </div>
-
-                <h3 className="font-serif text-3xl text-white">
-                  Marley&apos;s Kraamzorg
-                </h3>
-                <p className="mt-3 font-sans text-sm leading-6 text-white/75">
-                  Volledig op maat gemaakt met een uitzonderlijk snelle
-                  laadtijd en een perfecte beoordeling.
+              <div className="mb-8">
+                <p className="mb-2 font-sans text-xs font-semibold uppercase tracking-wider text-foreground-muted">
+                  Gerealiseerd project
                 </p>
 
-                <a
-                  href="https://pagespeed.web.dev/analysis?url=https://www.marleyskraamzorg.nl/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 font-sans text-sm font-semibold text-white transition-colors hover:text-[#F5B18D]"
-                >
-                  Bekijk de live score bij Google
-                  <ExternalLink size={15} aria-hidden="true" />
-                  <span className="sr-only">(opent in een nieuw tabblad)</span>
-                </a>
+                <h2 className="mb-3 font-serif text-2xl text-foreground">
+                  Marley&apos;s Kraamzorg
+                </h2>
+
+                <p className="font-sans text-sm leading-relaxed text-foreground-muted">
+                  Een op maat gemaakte website, met aandacht voor vormgeving,
+                  gebruiksgemak en technische prestaties.
+                </p>
               </div>
 
-              <p className="mt-6 text-center font-sans text-xs leading-5 text-foreground-muted">
-                Gemeten PageSpeed-resultaten van het getoonde project.
+              <a
+                href="https://pagespeed.web.dev/analysis?url=https://www.marleyskraamzorg.nl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full items-center justify-center gap-2 rounded-sm bg-background-secondary py-3.5 font-sans text-sm font-semibold text-foreground transition-colors hover:bg-border-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+              >
+                Bekijk de meting bij Google
+                <ExternalLink size={16} aria-hidden="true" />
+                <span className="sr-only">
+                  (opent in een nieuw tabblad)
+                </span>
+              </a>
+
+              <p className="mt-4 font-sans text-xs leading-relaxed text-foreground-muted">
+                Dit zijn gemeten projectresultaten. Scores kunnen per meting
+                en apparaat verschillen.
               </p>
             </div>
-
-            <div
-              aria-hidden="true"
-              className="absolute -bottom-5 -left-5 -z-10 h-28 w-28 rounded-full bg-accent/10 blur-2xl"
-            />
           </div>
         </div>
       </section>
 
-      {/* USP'S */}
       <USPGrid />
 
-      {/* FAQ */}
-      <section
-        className="bg-background py-24 sm:py-28"
-        aria-labelledby="faq-heading"
-      >
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
-            <div className="lg:col-span-4">
-              <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.2em] text-accent">
-                Duidelijkheid vooraf
-              </p>
-              <h2
-                id="faq-heading"
-                className="font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl"
-              >
-                Veelgestelde vragen.
-              </h2>
-              <p className="mt-5 max-w-sm font-sans leading-7 text-foreground-muted">
-                Alles wat je wilt weten over samenwerken met WebBoost Partner.
-              </p>
-            </div>
+      <section className="bg-background-secondary py-24 sm:py-32">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <p className="mb-4 font-sans text-xs font-bold uppercase tracking-[0.25em] text-brand-accessible">
+              Veelgestelde vragen
+            </p>
 
-            <div className="lg:col-span-8">
-              <FAQ items={faqs} schemaId="home" />
-            </div>
+            <h2 className="mb-5 font-serif text-4xl text-foreground sm:text-5xl">
+              Goed om vooraf te weten.
+            </h2>
+
+            <p className="font-sans leading-relaxed text-foreground-muted">
+              Heeft u vragen over de kosten, de techniek of de samenwerking?
+              Hieronder vindt u alvast antwoord op veelgestelde vragen.
+            </p>
           </div>
+
+          <FAQ items={faqs} schemaId="home" />
         </div>
       </section>
 
-      {/* CTA */}
       <CTASection />
     </>
   );
