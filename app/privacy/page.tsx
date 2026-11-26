@@ -1,9 +1,10 @@
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacyverklaring | WebBoost Partner",
   description:
-    "Privacyverklaring van WebBoost Partner. Lees hoe wij omgaan met uw persoonsgegevens, cookies en uw privacyrechten.",
+    "Privacyverklaring van WebBoost Partner. Lees hoe ik omga met uw persoonsgegevens, cookies en uw privacyrechten.",
   alternates: {
     canonical: "/privacy",
   },
@@ -14,367 +15,333 @@ export default function PrivacyPage() {
     <>
       {/* Hero */}
       <section className="bg-background pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <h1 className="font-serif text-5xl sm:text-6xl text-foreground leading-[1.05] tracking-tight mb-6">
-            <span className="block">
-              <span className="text-brand italic">Privacy</span>verklaring
-            </span>
+        <div className="mx-auto max-w-4xl px-6">
+          <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-brand">
+            Juridische informatie
+          </span>
+
+          <h1 className="mb-6 text-4xl font-semibold text-foreground md:text-5xl">
+            Privacyverklaring
           </h1>
-          <p className="text-lg leading-relaxed text-foreground-muted font-sans max-w-2xl">
-            Laatst bijgewerkt:{" "}
-            <strong className="text-foreground font-semibold">
-              19-09-2026
-            </strong>
-            . WebBoost Partner respecteert uw privacy en gaat zorgvuldig om met
-            persoonsgegevens. In deze verklaring leest u hoe wij dat doen.
+
+          <p className="max-w-2xl text-lg leading-relaxed text-foreground-muted">
+            Ik vind uw privacy belangrijk. In deze privacyverklaring leest u
+            welke persoonsgegevens ik verwerk, waarom ik dat doe en hoe ik
+            zorgvuldig met uw gegevens omga.
+          </p>
+
+          <p className="mt-6 text-sm text-foreground-muted">
+            Laatst bijgewerkt: 19 september 2026
           </p>
         </div>
       </section>
 
       {/* Content */}
-      <section className="bg-background-secondary py-16 sm:py-24 border-t border-border-subtle">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              1. Wie zijn wij?
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              WebBoost Partner is een eenmanszaak gevestigd aan de Neeltje
-              Griffijnstraat 12, 3065 KD Rotterdam. Wij zijn verantwoordelijk
-              voor de verwerking van persoonsgegevens zoals beschreven in deze
-              privacyverklaring.
-            </p>
-            <p className="text-base text-foreground-muted leading-relaxed font-sans">
-              <strong className="text-foreground font-semibold">
-                Contact:
-              </strong>{" "}
-              info@webboostpartner.nl &middot; 06-42628242
-            </p>
-          </div>
+      <section className="bg-white py-16 lg:py-20">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="space-y-12 text-base leading-8 text-foreground-muted">
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                1. Wie ben ik?
+              </h2>
 
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              2. Welke gegevens verzamelen wij?
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              Wij verwerken alleen persoonsgegevens die noodzakelijk zijn voor
-              onze dienstverlening. Dit kan onder meer betreffen:
-            </p>
-            <ul className="space-y-3 text-base text-foreground-muted leading-relaxed font-sans pl-2">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Contactgegevens:
-                  </strong>{" "}
-                  naam, e-mailadres, telefoonnummer, bedrijfsnaam en adres.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Communicatie:
-                  </strong>{" "}
-                  berichten die u ons toestuurt via het contactformulier,
-                  e-mail of telefoon.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Technische gegevens:
-                  </strong>{" "}
-                  IP-adres, browsertype, besturingssysteem en bezochte pagina&apos;s
-                  (via Google Analytics, geanonimiseerd).
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Opdrachtgegevens:
-                  </strong>{" "}
-                  informatie die u aanlevert in het kader van een project, zoals
-                  teksten, afbeeldingen en logo&apos;s.
-                </span>
-              </li>
-            </ul>
-          </div>
+              <p>
+                WebBoost Partner is verantwoordelijk voor de verwerking van
+                persoonsgegevens zoals beschreven in deze privacyverklaring.
+              </p>
 
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              3. Waarom verwerken wij uw gegevens?
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              Wij gebruiken uw persoonsgegevens voor de volgende doeleinden:
-            </p>
-            <ul className="space-y-3 text-base text-foreground-muted leading-relaxed font-sans pl-2">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>Het beantwoorden van uw vragen en aanvragen.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>Het opstellen van offertes en het uitvoeren van opdrachten.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>Het onderhouden van de contactrelatie en nazorg.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>Het verbeteren van onze website en diensten.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  Het voldoen aan wettelijke verplichtingen, zoals de
-                  administratie.
-                </span>
-              </li>
-            </ul>
-          </div>
+              <ul className="mt-4 space-y-2">
+                <li>Bedrijfsnaam: WebBoost Partner</li>
+                <li>Adres: Neeltje Griffijnstraat 12, 3065 KD Rotterdam</li>
+                <li>
+                  E-mail:{" "}
+                  <a
+                    href="mailto:info@webboostpartner.nl"
+                    className="text-brand underline underline-offset-4"
+                  >
+                    info@webboostpartner.nl
+                  </a>
+                </li>
+                <li>
+                  Telefoon:{" "}
+                  <a
+                    href="tel:+31642628242"
+                    className="text-brand underline underline-offset-4"
+                  >
+                    06-42628242
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              4. Rechtsgrondslag
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              Wij verwerken uw gegevens op basis van de volgende
-              rechtsgrondslagen uit de AVG:
-            </p>
-            <ul className="space-y-3 text-base text-foreground-muted leading-relaxed font-sans pl-2">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Toestemming:
-                  </strong>{" "}
-                  wanneer u het contactformulier invult of zich abonneert op
-                  communicatie.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Uitvoering van een overeenkomst:
-                  </strong>{" "}
-                  voor het leveren van onze diensten.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Wettelijke verplichting:
-                  </strong>{" "}
-                  bijvoorbeeld voor de fiscale administratie.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Gerechtvaardigd belang:
-                  </strong>{" "}
-                  voor het verbeteren van onze website en dienstverlening.
-                </span>
-              </li>
-            </ul>
-          </div>
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                2. Welke persoonsgegevens verwerk ik?
+              </h2>
 
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              5. Bewaartermijn
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              Wij bewaren uw persoonsgegevens niet langer dan noodzakelijk is
-              voor het doel waarvoor zij zijn verzameld. Offertes en
-              correspondentie bewaren wij maximaal 2 jaar na afloop van het
-              contact. Financiële gegevens bewaren wij conform de wettelijke
-              bewaartermijn van 7 jaar. U kunt te allen tijde verzoeken om
-              verwijdering van uw gegevens.
-            </p>
-          </div>
+              <p>
+                Wanneer u contact met mij opneemt of gebruikmaakt van mijn
+                diensten, kan ik de volgende persoonsgegevens verwerken:
+              </p>
 
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              6. Delen met derden
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              Wij verkopen uw gegevens niet aan derden. Wij delen uw gegevens
-              alleen wanneer dit noodzakelijk is voor onze dienstverlening:
-            </p>
-            <ul className="space-y-3 text-base text-foreground-muted leading-relaxed font-sans pl-2">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Hostingpartijen:
-                  </strong>{" "}
-                  Vercel (website hosting) en Supabase (database).
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Analytics:
-                  </strong>{" "}
-                  Google Analytics (geanonimiseerde data).
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Formulierverwerking:
-                  </strong>{" "}
-                  Formspree (voor het doorsturen van contactformulieren).
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Overheid:
-                  </strong>{" "}
-                  indien wettelijk verplicht, bijvoorbeeld voor de
-                  Belastingdienst.
-                </span>
-              </li>
-            </ul>
-          </div>
+              <ul className="mt-4 list-disc space-y-2 pl-6">
+                <li>Naam en bedrijfsnaam</li>
+                <li>E-mailadres en telefoonnummer</li>
+                <li>Gegevens die u zelf invult in het contactformulier</li>
+                <li>Informatie over uw website of aanvraag</li>
+                <li>
+                  Technische gegevens, zoals IP-adres, browsertype,
+                  besturingssysteem en bezochte pagina's
+                </li>
+                <li>
+                  Correspondentie en overige informatie die u vrijwillig
+                  verstrekt
+                </li>
+              </ul>
+            </div>
 
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              7. Beveiliging
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              Wij nemen passende technische en organisatorische maatregelen om
-              uw gegevens te beschermen tegen verlies, onbevoegde toegang of
-              wijziging. Onze website gebruikt HTTPS-encryptie en wij werken
-              uitsluitend met betrouwbare partijen die voldoen aan de AVG.
-            </p>
-          </div>
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                3. Waarom verwerk ik uw persoonsgegevens?
+              </h2>
 
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              8. Uw rechten
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              Onder de Algemene Verordening Gegevensbescherming (AVG) heeft u
-              de volgende rechten:
-            </p>
-            <ul className="space-y-3 text-base text-foreground-muted leading-relaxed font-sans pl-2">
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Recht op inzage:
-                  </strong>{" "}
-                  u mag weten welke gegevens wij van u hebben.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Recht op correctie:
-                  </strong>{" "}
-                  u mag onjuiste gegevens laten aanpassen.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Recht op verwijdering:
-                  </strong>{" "}
-                  u mag verzoeken om verwijdering van uw gegevens
-                  (&quot;recht om vergeten te worden&quot;).
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Recht op beperking:
-                  </strong>{" "}
-                  u mag verzoeken om beperking van de verwerking.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Recht op dataportabiliteit:
-                  </strong>{" "}
-                  u mag uw gegevens in een gestructureerd formaat ontvangen.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Recht van bezwaar:
-                  </strong>{" "}
-                  u mag bezwaar maken tegen de verwerking van uw gegevens.
-                </span>
-              </li>
-            </ul>
-            <p className="text-base text-foreground-muted leading-relaxed mt-6 font-sans">
-              Om deze rechten uit te oefenen, kunt u contact met ons opnemen
-              via{" "}
-              <a
-                href="mailto:info@webboostpartner.nl"
-                className="text-brand underline decoration-brand/30 underline-offset-4 hover:decoration-brand transition-colors font-medium"
-              >
-                info@webboostpartner.nl
-              </a>
-              . Wij reageren binnen 4 weken.
-            </p>
-          </div>
+              <p>
+                Ik verwerk uw persoonsgegevens uitsluitend voor de volgende
+                doeleinden:
+              </p>
 
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              9. Klachten
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              Heeft u een klacht over de verwerking van uw persoonsgegevens?
-              Neem dan contact met ons op. U heeft ook het recht om een klacht
-              in te dienen bij de Autoriteit Persoonsgegevens:{" "}
-              <a
-                href="https://autoriteitpersoonsgegevens.nl"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand underline decoration-brand/30 underline-offset-4 hover:decoration-brand transition-colors font-medium"
-              >
-                autoriteitpersoonsgegevens.nl
-              </a>
-              .
-            </p>
-          </div>
+              <ul className="mt-4 list-disc space-y-2 pl-6">
+                <li>
+                  Het beantwoorden van vragen en contactverzoeken
+                </li>
+                <li>
+                  Het opstellen en versturen van offertes
+                </li>
+                <li>
+                  Het uitvoeren van overeenkomsten en geleverde diensten
+                </li>
+                <li>
+                  Het onderhouden van contact over lopende projecten
+                </li>
+                <li>
+                  Het verbeteren en beveiligen van mijn website
+                </li>
+                <li>
+                  Het voldoen aan wettelijke verplichtingen
+                </li>
+              </ul>
+            </div>
 
-          <div className="mb-12">
-            <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
-              10. Wijzigingen
-            </h2>
-            <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
-              Wij kunnen deze privacyverklaring van tijd tot tijd wijzigen. De
-              meest actuele versie is altijd beschikbaar op deze pagina. Wij
-              raden u aan om deze verklaring regelmatig te raadplegen.
-            </p>
-          </div>
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                4. Op basis van welke grondslag?
+              </h2>
 
-          <div className="pt-8 border-t border-border-subtle mt-16">
-            <p className="text-sm text-foreground-muted leading-relaxed font-sans">
-              WebBoost Partner &middot; Neeltje Griffijnstraat 12, 3065 KD
-              Rotterdam &middot; info@webboostpartner.nl
-            </p>
+              <p>
+                Ik verwerk persoonsgegevens op basis van een of meer van de
+                volgende wettelijke grondslagen:
+              </p>
+
+              <ul className="mt-4 list-disc space-y-2 pl-6">
+                <li>
+                  Uw toestemming, wanneer toestemming wettelijk vereist is
+                </li>
+                <li>
+                  De uitvoering van een overeenkomst of het nemen van
+                  voorbereidende stappen daarvoor
+                </li>
+                <li>
+                  Het voldoen aan een wettelijke verplichting
+                </li>
+                <li>
+                  Mijn gerechtvaardigd belang, bijvoorbeeld voor het
+                  beantwoorden van zakelijke vragen en het beveiligen van mijn
+                  website
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                5. Hoe lang bewaar ik uw gegevens?
+              </h2>
+
+              <p>
+                Ik bewaar uw persoonsgegevens niet langer dan noodzakelijk
+                voor het doel waarvoor ze zijn verzameld, tenzij een wettelijke
+                bewaartermijn anders voorschrijft.
+              </p>
+
+              <ul className="mt-4 list-disc space-y-2 pl-6">
+                <li>
+                  Offertes en correspondentie: maximaal 2 jaar na het laatste
+                  contact, tenzij een langere bewaartermijn noodzakelijk is.
+                </li>
+                <li>
+                  Financiële administratie: 7 jaar, conform de wettelijke
+                  fiscale bewaarplicht.
+                </li>
+                <li>
+                  Projectgegevens: zolang dit noodzakelijk is voor de
+                  uitvoering van de overeenkomst en eventuele vervolgafspraken.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                6. Delen van persoonsgegevens met derden
+              </h2>
+
+              <p>
+                Ik verkoop uw persoonsgegevens nooit aan derden. Ik deel
+                gegevens alleen wanneer dit noodzakelijk is voor mijn
+                dienstverlening, de werking van mijn website of om te voldoen
+                aan een wettelijke verplichting.
+              </p>
+
+              <ul className="mt-4 list-disc space-y-3 pl-6">
+                <li>
+                  <strong className="text-foreground">Vercel:</strong> voor
+                  hosting en het beschikbaar stellen van mijn website.
+                </li>
+                <li>
+                  <strong className="text-foreground">Resend:</strong> voor
+                  het verwerken en verzenden van berichten die via mijn
+                  contactformulier worden ingediend.
+                </li>
+                <li>
+                  <strong className="text-foreground">Google Analytics:</strong>{" "}
+                  voor het analyseren van het websitegebruik, voor zover deze
+                  dienst is geactiveerd en overeenkomstig de geldende
+                  privacyvoorkeuren wordt gebruikt.
+                </li>
+                <li>
+                  <strong className="text-foreground">
+                    Overheidsinstanties:
+                  </strong>{" "}
+                  wanneer ik daartoe wettelijk verplicht ben.
+                </li>
+              </ul>
+
+              <p className="mt-4">
+                Met partijen die namens mij persoonsgegevens verwerken, maak
+                ik waar nodig afspraken over de bescherming en beveiliging van
+                deze gegevens.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                7. Hoe beveilig ik uw gegevens?
+              </h2>
+
+              <p>
+                Ik neem passende technische en organisatorische maatregelen om
+                uw persoonsgegevens te beschermen tegen verlies, misbruik,
+                onbevoegde toegang en ongewenste openbaarmaking.
+              </p>
+
+              <p className="mt-4">
+                Mijn website maakt gebruik van een beveiligde HTTPS-verbinding.
+                Daarnaast maak ik gebruik van betrouwbare dienstverleners voor
+                de technische werking van mijn website en de verwerking van
+                contactverzoeken.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                8. Cookies en websiteanalyse
+              </h2>
+
+              <p>
+                Mijn website kan cookies en vergelijkbare technieken gebruiken
+                om de website goed te laten functioneren en inzicht te krijgen
+                in het gebruik ervan.
+              </p>
+
+              <p className="mt-4">
+                Voor analytische of andere cookies waarvoor toestemming
+                verplicht is, vraag ik vooraf toestemming. Meer informatie
+                vindt u in mijn cookiebeleid.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                9. Uw privacyrechten
+              </h2>
+
+              <p>
+                U heeft op grond van de AVG verschillende rechten met
+                betrekking tot uw persoonsgegevens. U kunt mij verzoeken om:
+              </p>
+
+              <ul className="mt-4 list-disc space-y-2 pl-6">
+                <li>Uw persoonsgegevens in te zien</li>
+                <li>Onjuiste gegevens te laten corrigeren</li>
+                <li>Uw persoonsgegevens te laten verwijderen</li>
+                <li>De verwerking van uw gegevens te beperken</li>
+                <li>Uw gegevens over te dragen</li>
+                <li>Bezwaar te maken tegen bepaalde verwerkingen</li>
+                <li>
+                  Eerder gegeven toestemming weer in te trekken
+                </li>
+              </ul>
+
+              <p className="mt-4">
+                U kunt hiervoor contact opnemen via{" "}
+                <a
+                  href="mailto:info@webboostpartner.nl"
+                  className="text-brand underline underline-offset-4"
+                >
+                  info@webboostpartner.nl
+                </a>
+                . Ik reageer in principe binnen één maand op uw verzoek.
+              </p>
+
+              <p className="mt-4">
+                U heeft daarnaast het recht om een klacht in te dienen bij de
+                Autoriteit Persoonsgegevens via{" "}
+                <a
+                  href="https://autoriteitpersoonsgegevens.nl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand underline underline-offset-4"
+                >
+                  autoriteitpersoonsgegevens.nl
+                </a>
+                .
+              </p>
+            </div>
+
+            <div>
+              <h2 className="mb-4 text-2xl font-semibold text-foreground">
+                10. Contact
+              </h2>
+
+              <p>
+                Heeft u vragen over deze privacyverklaring of over de manier
+                waarop ik met uw persoonsgegevens omga? Neem dan gerust
+                contact met mij op.
+              </p>
+
+              <p className="mt-4">
+                WebBoost Partner
+                <br />
+                Neeltje Griffijnstraat 12
+                <br />
+                3065 KD Rotterdam
+                <br />
+                <a
+                  href="mailto:info@webboostpartner.nl"
+                  className="text-brand underline underline-offset-4"
+                >
+                  info@webboostpartner.nl
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
