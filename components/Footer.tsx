@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Mail, Phone, MapPin, Zap, ArrowUpRight } from "lucide-react";
 
@@ -27,13 +29,16 @@ const legalLinks = [
 ];
 
 export default function Footer() {
+  const openCookiePreferences = () => {
+    window.dispatchEvent(new Event("open-cookie-preferences"));
+  };
+
   return (
     <footer
       className="border-t border-border-subtle bg-background-secondary text-foreground"
       data-testid="site-footer"
     >
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 lg:px-8">
-
         {/* BEDRIJFSPROFIEL */}
         <div className="md:col-span-2 lg:pr-12">
           <Link
@@ -142,7 +147,6 @@ export default function Footer() {
       {/* FOOTER ONDERZIJDE */}
       <div className="border-t border-border-subtle">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-6 text-center md:flex-row md:text-left lg:px-8">
-
           <p className="font-sans text-xs text-foreground-muted">
             &copy; {new Date().getFullYear()} WebBoost Partner. Alle rechten
             voorbehouden.
@@ -153,7 +157,7 @@ export default function Footer() {
           </p>
 
           <nav
-            aria-label="Juridische informatie"
+            aria-label="Juridische informatie en cookievoorkeuren"
             className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-sans text-xs text-foreground-muted"
           >
             {legalLinks.map((item, index) => (
@@ -172,6 +176,20 @@ export default function Footer() {
                 </Link>
               </span>
             ))}
+
+            <span className="inline-flex items-center gap-4">
+              <span aria-hidden="true" className="text-border-subtle">
+                ·
+              </span>
+
+              <button
+                type="button"
+                onClick={openCookiePreferences}
+                className="transition-colors hover:text-brand"
+              >
+                Cookievoorkeuren
+              </button>
+            </span>
           </nav>
         </div>
       </div>
