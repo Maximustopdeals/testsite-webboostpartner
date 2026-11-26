@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { DM_Serif_Display, Manrope } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
-
-const GTM_ID = "GTM-PSM987PS";
+import CookieBanner from "@/components/CookieBanner";
 
 const dmSerif = DM_Serif_Display({
   weight: "400",
@@ -96,82 +94,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" className={`${dmSerif.variable} ${manrope.variable}`}>
-      <head>
-        {/* Google Consent Mode v2 en GTM initialisatie */}
-        <Script
-          id="gtm-consent-init"
-          strategy="beforeInteractive"
-        >
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function() {
-              window.dataLayer.push(arguments);
-            };
-
-            var storedConsent = null;
-
-            try {
-              storedConsent = localStorage.getItem("cookie-consent");
-            } catch (error) {
-              storedConsent = null;
-            }
-
-            var analyticsConsent =
-              storedConsent === "all" ? "granted" : "denied";
-
-            window.gtag("consent", "default", {
-              analytics_storage: analyticsConsent,
-              ad_storage: "denied",
-              ad_user_data: "denied",
-              ad_personalization: "denied",
-              functionality_storage: "granted",
-              personalization_storage: "denied",
-              security_storage: "granted",
-              wait_for_update: 500
-            });
-
-            (function(w,d,s,l,i) {
-              w[l] = w[l] || [];
-              w[l].push({
-                "gtm.start": new Date().getTime(),
-                event: "gtm.js"
-              });
-
-              var firstScript = d.getElementsByTagName(s)[0];
-              var newScript = d.createElement(s);
-              var dataLayerParam = l !== "dataLayer"
-                ? "&l=" + l
-                : "";
-
-              newScript.async = true;
-              newScript.src =
-                "https://www.googletagmanager.com/gtm.js?id=" +
-                i + dataLayerParam;
-
-              firstScript.parentNode.insertBefore(
-                newScript,
-                firstScript
-              );
-            })(window,document,"script","dataLayer","${GTM_ID}");
-          `}
-        </Script>
-      </head>
-
       <body className="bg-background text-foreground font-sans antialiased selection:bg-brand selection:text-white flex flex-col min-h-screen">
-        {/* Google Tag Manager noscript fallback */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{
-              display: "none",
-              visibility: "hidden",
-            }}
-            title="Google Tag Manager"
-          />
-        </noscript>
-
         {/* Global structured data */}
         <script
           type="application/ld+json"
@@ -228,6 +151,9 @@ export default function RootLayout({
         <Footer />
 
         <FloatingActions />
+
+        {/* Cookievoorkeuren en eventuele analytische scripts */}
+        <CookieBanner />
       </body>
     </html>
   );
