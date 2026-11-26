@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -10,28 +9,27 @@ const GTM_ID = "GTM-PSM987PS";
 
 type Consent = "all" | "functional";
 
+type DataLayerEvent = Record<string, unknown> | IArguments;
+
 declare global {
   interface Window {
-    dataLayer: unknown[][];
+    dataLayer: DataLayerEvent[];
     gtag: (...args: unknown[]) => void;
   }
 }
 
 function loadGoogleTagManager() {
-  // Voorkom dat GTM meerdere keren wordt geladen.
-  if (document.getElementById("google-tag-manager")) {
-    return;
-  }
+  if (typeof window === "undefined") return;
+
+  // Voorkom dubbele initialisatie.
+  if (document.getElementById("google-tag-manager")) return;
 
   window.dataLayer = window.dataLayer || [];
 
-  window.gtag =
-    window.gtag ||
-    function (...args: unknown[]) {
-      window.dataLayer.push(args);
-    };
+  window.gtag = function (...args: unknown[]) {
+    window.dataLayer.push(args as unknown as DataLayerEvent);
+  };
 
-  // Consent Mode v2: standaard geen toestemming.
   window.gtag("consent", "default", {
     analytics_storage: "denied",
     ad_storage: "denied",
@@ -42,7 +40,6 @@ function loadGoogleTagManager() {
     security_storage: "granted",
   });
 
-  // De bezoeker heeft analytische cookies geaccepteerd.
   window.gtag("consent", "update", {
     analytics_storage: "granted",
     ad_storage: "denied",
@@ -50,7 +47,6 @@ function loadGoogleTagManager() {
     ad_personalization: "denied",
   });
 
-  // GTM initialiseren.
   window.dataLayer.push({
     "gtm.start": new Date().getTime(),
     event: "gtm.js",
@@ -69,7 +65,7 @@ export default function CookieBanner() {
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY) as Consent | null;
+      const stored = localStorage.getItem(STORAGE_KEY);
 
       if (stored === "all") {
         loadGoogleTagManager();
@@ -84,7 +80,6 @@ export default function CookieBanner() {
 
       setVisible(true);
     } catch {
-      // Bij een niet-beschikbare opslag geen analytische scripts laden.
       setVisible(true);
     }
   }, []);
@@ -93,10 +88,8 @@ export default function CookieBanner() {
     try {
       localStorage.setItem(STORAGE_KEY, consent);
     } catch {
-      // Zonder opgeslagen toestemming wordt GTM niet geladen.
-      if (consent === "all") {
-        return;
-      }
+      // Zonder beschikbare opslag geen analytische scripts laden.
+      if (consent === "all") return;
     }
 
     if (consent === "all") {
