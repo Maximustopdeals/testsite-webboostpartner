@@ -34,6 +34,7 @@ export default function PrivacyPage() {
       {/* Content */}
       <section className="bg-background-secondary py-16 sm:py-24 border-t border-border-subtle">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
+          {/* 1. Wie zijn wij? */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               1. Wie zijn wij?
@@ -52,6 +53,7 @@ export default function PrivacyPage() {
             </p>
           </div>
 
+          {/* 2. Welke gegevens verzamelen wij? */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               2. Welke gegevens verzamelen wij?
@@ -87,7 +89,7 @@ export default function PrivacyPage() {
                     Technische gegevens:
                   </strong>{" "}
                   IP-adres, browsertype, besturingssysteem en bezochte pagina&apos;s
-                  (via Google Analytics, geanonimiseerd).
+                  (via Google Analytics, voor zover van toepassing).
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -103,6 +105,7 @@ export default function PrivacyPage() {
             </ul>
           </div>
 
+          {/* 3. Waarom verwerken wij uw gegevens? */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               3. Waarom verwerken wij uw gegevens?
@@ -117,7 +120,9 @@ export default function PrivacyPage() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>Het opstellen van offertes en het uitvoeren van opdrachten.</span>
+                <span>
+                  Het opstellen van offertes en het uitvoeren van opdrachten.
+                </span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
@@ -137,6 +142,7 @@ export default function PrivacyPage() {
             </ul>
           </div>
 
+          {/* 4. Rechtsgrondslag */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               4. Rechtsgrondslag
@@ -152,8 +158,8 @@ export default function PrivacyPage() {
                   <strong className="text-foreground font-semibold">
                     Toestemming:
                   </strong>{" "}
-                  wanneer u het contactformulier invult of zich abonneert op
-                  communicatie.
+                  wanneer u toestemming geeft voor een verwerking waarvoor dat
+                  vereist is.
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -180,12 +186,14 @@ export default function PrivacyPage() {
                   <strong className="text-foreground font-semibold">
                     Gerechtvaardigd belang:
                   </strong>{" "}
-                  voor het verbeteren van onze website en dienstverlening.
+                  voor zover dit wettelijk is toegestaan, bijvoorbeeld voor
+                  het verbeteren van onze website en dienstverlening.
                 </span>
               </li>
             </ul>
           </div>
 
+          {/* 5. Bewaartermijn */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               5. Bewaartermijn
@@ -200,6 +208,7 @@ export default function PrivacyPage() {
             </p>
           </div>
 
+          {/* 6. Delen met derden */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               6. Delen met derden
@@ -213,9 +222,19 @@ export default function PrivacyPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
                 <span>
                   <strong className="text-foreground font-semibold">
-                    Hostingpartijen:
+                    Hosting:
                   </strong>{" "}
-                  Vercel (website hosting) en Supabase (database).
+                  Vercel (voor het hosten van de website).
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
+                <span>
+                  <strong className="text-foreground font-semibold">
+                    E-mailverwerking:
+                  </strong>{" "}
+                  Resend (voor het verwerken en verzenden van berichten via het
+                  contactformulier).
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -224,16 +243,8 @@ export default function PrivacyPage() {
                   <strong className="text-foreground font-semibold">
                     Analytics:
                   </strong>{" "}
-                  Google Analytics (geanonimiseerde data).
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2.5 shrink-0" />
-                <span>
-                  <strong className="text-foreground font-semibold">
-                    Formulierverwerking:
-                  </strong>{" "}
-                  Formspree (voor het doorsturen van contactformulieren).
+                  Google Analytics, indien deze dienst op de website actief is
+                  en gegevens verzamelt.
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -242,12 +253,14 @@ export default function PrivacyPage() {
                   <strong className="text-foreground font-semibold">
                     Overheid:
                   </strong>{" "}
-                  indien wettelijk verplicht, bijvoorbeeld voor de Belastingdienst.
+                  indien wettelijk verplicht, bijvoorbeeld voor de
+                  Belastingdienst.
                 </span>
               </li>
             </ul>
           </div>
 
+          {/* 7. Beveiliging */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               7. Beveiliging
@@ -255,11 +268,13 @@ export default function PrivacyPage() {
             <p className="text-base text-foreground-muted leading-relaxed mb-4 font-sans">
               Wij nemen passende technische en organisatorische maatregelen om
               uw gegevens te beschermen tegen verlies, onbevoegde toegang of
-              wijziging. Onze website gebruikt HTTPS-encryptie en wij werken
-              uitsluitend met betrouwbare partijen die voldoen aan de AVG.
+              wijziging. Onze website gebruikt HTTPS-encryptie. Wij maken
+              daarnaast gebruik van dienstverleners die nodig zijn voor het
+              functioneren van onze website en dienstverlening.
             </p>
           </div>
 
+          {/* 8. Uw rechten */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               8. Uw rechten
@@ -312,7 +327,8 @@ export default function PrivacyPage() {
                   <strong className="text-foreground font-semibold">
                     Recht op dataportabiliteit:
                   </strong>{" "}
-                  u mag uw gegevens in een gestructureerd formaat ontvangen.
+                  u mag uw gegevens in een gestructureerd formaat ontvangen,
+                  voor zover dit recht van toepassing is.
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -321,7 +337,8 @@ export default function PrivacyPage() {
                   <strong className="text-foreground font-semibold">
                     Recht van bezwaar:
                   </strong>{" "}
-                  u mag bezwaar maken tegen de verwerking van uw gegevens.
+                  u mag bezwaar maken tegen de verwerking van uw gegevens,
+                  voor zover de AVG dit recht biedt.
                 </span>
               </li>
             </ul>
@@ -334,10 +351,11 @@ export default function PrivacyPage() {
               >
                 info@webboostpartner.nl
               </a>
-              . Wij reageren binnen 4 weken.
+              . Wij reageren in principe binnen één maand op uw verzoek.
             </p>
           </div>
 
+          {/* 9. Klachten */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               9. Klachten
@@ -358,6 +376,7 @@ export default function PrivacyPage() {
             </p>
           </div>
 
+          {/* 10. Wijzigingen */}
           <div className="mb-12">
             <h2 className="font-serif text-2xl sm:text-3xl text-foreground mb-4 pb-3 border-b border-border-subtle">
               10. Wijzigingen
@@ -369,6 +388,7 @@ export default function PrivacyPage() {
             </p>
           </div>
 
+          {/* Contactgegevens */}
           <div className="pt-8 border-t border-border-subtle mt-16">
             <p className="text-sm text-foreground-muted leading-relaxed font-sans">
               WebBoost Partner &middot; Neeltje Griffijnstraat 12, 3065 KD
