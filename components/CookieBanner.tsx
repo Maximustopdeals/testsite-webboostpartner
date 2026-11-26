@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -5,25 +6,104 @@ import Link from "next/link";
 import { Cookie, X } from "lucide-react";
 
 const STORAGE_KEY = "cookie-consent";
-type Consent = "all" | "functional" | null;
+const GTM_ID = "GTM-PSM987PS";
+
+type Consent = "all" | "functional";
+
+declare global {
+  interface Window {
+    dataLayer: unknown[][];
+    gtag: (...args: unknown[]) => void;
+  }
+}
+
+function loadGoogleTagManager() {
+  // Voorkom dat GTM meerdere keren wordt geladen.
+  if (document.getElementById("google-tag-manager")) {
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+
+  window.gtag =
+    window.gtag ||
+    function (...args: unknown[]) {
+      window.dataLayer.push(args);
+    };
+
+  // Consent Mode v2: standaard geen toestemming.
+  window.gtag("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    functionality_storage: "granted",
+    personalization_storage: "denied",
+    security_storage: "granted",
+  });
+
+  // De bezoeker heeft analytische cookies geaccepteerd.
+  window.gtag("consent", "update", {
+    analytics_storage: "granted",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+
+  // GTM initialiseren.
+  window.dataLayer.push({
+    "gtm.start": new Date().getTime(),
+    event: "gtm.js",
+  });
+
+  const script = document.createElement("script");
+  script.id = "google-tag-manager";
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
+
+  document.head.appendChild(script);
+}
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as Consent;
-    if (!stored) setVisible(true);
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY) as Consent | null;
+
+      if (stored === "all") {
+        loadGoogleTagManager();
+        setVisible(false);
+        return;
+      }
+
+      if (stored === "functional") {
+        setVisible(false);
+        return;
+      }
+
+      setVisible(true);
+    } catch {
+      // Bij een niet-beschikbare opslag geen analytische scripts laden.
+      setVisible(true);
+    }
   }, []);
 
-  const handleConsent = (consent: "all" | "functional") => {
-    localStorage.setItem(STORAGE_KEY, consent);
-    setVisible(false);
-    if (typeof window !== "undefined") {
-      // @ts-expect-error - gtag wordt door GTM ingeladen
-      window.gtag?.("consent", "update", {
-        analytics_storage: consent === "all" ? "granted" : "denied",
-      });
+  const handleConsent = (consent: Consent) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, consent);
+    } catch {
+      // Zonder opgeslagen toestemming wordt GTM niet geladen.
+      if (consent === "all") {
+        return;
+      }
     }
+
+    if (consent === "all") {
+      loadGoogleTagManager();
+    }
+
+    setVisible(false);
   };
 
   if (!visible) return null;
@@ -32,6 +112,7 @@ export default function CookieBanner() {
     <div
       className="fixed bottom-6 left-6 right-6 sm:right-auto sm:max-w-md z-[60] bg-background/95 backdrop-blur-md border border-border-subtle shadow-xl rounded-md"
       role="dialog"
+      aria-modal="true"
       aria-labelledby="cookie-banner-title"
       aria-describedby="cookie-banner-desc"
     >
@@ -40,23 +121,36 @@ export default function CookieBanner() {
           <div className="shrink-0 w-10 h-10 bg-brand/10 text-brand rounded-full grid place-items-center">
             <Cookie size={20} strokeWidth={2} />
           </div>
+
           <div className="flex-1">
-            <h2 id="cookie-banner-title" className="font-serif text-lg text-foreground mb-2">
+            <h2
+              id="cookie-banner-title"
+              className="font-serif text-lg text-foreground mb-2"
+            >
               Cookies
             </h2>
-            <p id="cookie-banner-desc" className="text-sm text-foreground-muted leading-relaxed font-sans">
-              Wij gebruiken functionele cookies om de website te laten werken, 
-              en analytische cookies om te begrijpen hoe u onze site gebruikt. 
-              Zie ons{" "}
-              <Link href="/cookiebeleid" className="text-brand underline decoration-brand/30 underline-offset-4 hover:decoration-brand transition-colors font-medium">
+
+            <p
+              id="cookie-banner-desc"
+              className="text-sm text-foreground-muted leading-relaxed font-sans"
+            >
+              Wij gebruiken functionele cookies om de website goed te laten
+              werken. Met uw toestemming gebruiken wij daarnaast analytische
+              cookies om het gebruik van onze website te begrijpen. Lees meer
+              in ons{" "}
+              <Link
+                href="/cookiebeleid"
+                className="text-brand underline decoration-brand/30 underline-offset-4 hover:decoration-brand transition-colors font-medium"
+              >
                 cookiebeleid
               </Link>.
             </p>
           </div>
+
           <button
             type="button"
             onClick={() => handleConsent("functional")}
-            aria-label="Sluit en accepteer alleen functionele cookies"
+            aria-label="Sluiten en alleen functionele cookies gebruiken"
             className="shrink-0 text-foreground-muted hover:text-foreground transition-colors p-1"
           >
             <X size={18} />
@@ -71,6 +165,7 @@ export default function CookieBanner() {
           >
             Alles accepteren
           </button>
+
           <button
             type="button"
             onClick={() => handleConsent("functional")}
