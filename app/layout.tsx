@@ -7,9 +7,6 @@ import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import CookieBanner from "@/components/CookieBanner";
 
-// NIEUW: Importeer de Google Tag Manager component
-import { GoogleTagManager } from "@next/third-parties/google";
-
 const dmSerif = DM_Serif_Display({
   weight: "400",
   subsets: ["latin"],
@@ -97,13 +94,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" className={`${dmSerif.variable} ${manrope.variable}`}>
-      {/* 
-        NIEUW: Google Tag Manager. 
-        Deze wordt direct ingeladen. Zorg dat je in het GTM dashboard 
-        de GA4 tag (G-L8ZWH28FVR) hebt gekoppeld aan 'All Pages'.
-      */}
-      <GoogleTagManager gtmId="GTM-PSM987PS" />
-
       <body className="bg-background text-foreground font-sans antialiased selection:bg-brand selection:text-white flex flex-col min-h-screen">
         {/* Global structured data */}
         <script

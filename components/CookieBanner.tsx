@@ -8,7 +8,6 @@ const STORAGE_KEY = "cookie-consent";
 const GTM_ID = "GTM-PSM987PS";
 
 type Consent = "all" | "functional";
-type ConsentState = Consent | null;
 
 declare global {
   interface Window {
@@ -57,8 +56,9 @@ function updateAnalyticsConsent(consent: Consent) {
   if (typeof window === "undefined") return;
 
   if (consent === "all") {
-    initializeGoogleTagManager();
-
+    // DEZE REGEL IS CRUCIAAL VOOR NIEUWE BEZOEKERS
+    initializeGoogleTagManager(); 
+    
     window.gtag?.("consent", "update", {
       analytics_storage: "granted",
       ad_storage: "denied",
