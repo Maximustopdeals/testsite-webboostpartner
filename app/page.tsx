@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import USPGrid from "@/components/USPGrid";
+import WebsiteCheckSection from "@/components/WebsiteCheckSection";
 import CTASection from "@/components/CTASection";
 import FAQ from "@/components/FAQ";
 
@@ -42,7 +43,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     q: "Wat kost professioneel webdesign in Rotterdam?",
-    a: "Mijn websitepakketten beginnen bij € 1.950 excl. btw. De uiteindelijke investering hangt af van de omvang, functionaliteit en wensen van uw website. U ontvangt vooraf een duidelijk voorstel. Bekijk de pakketten en prijzen voor meer informatie.",
+    a: "Mijn websitepakketten beginnen bij â‚¬ 1.950 excl. btw. De uiteindelijke investering hangt af van de omvang, functionaliteit en wensen van uw website. U ontvangt vooraf een duidelijk voorstel. Bekijk de pakketten en prijzen voor meer informatie.",
   },
   {
     q: "Wat moet ik zelf aanleveren voor mijn website?",
@@ -75,7 +76,7 @@ const structuredData = {
       name: "WebBoost Partner",
       image: "https://www.webboostpartner.nl/og.jpg",
       url: "https://www.webboostpartner.nl/",
-      priceRange: "€€",
+      priceRange: "â‚¬â‚¬",
       description:
         "Persoonlijk webdesign en Next.js-websiteontwikkeling voor zzp'ers en mkb-bedrijven in Rotterdam en omgeving.",
       address: {
@@ -142,7 +143,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-7">
             <p className="mb-6 font-sans text-xs font-bold uppercase tracking-[0.25em] text-brand-accessible">
-              WebBoost Partner · Rotterdam
+              WebBoost Partner Â· Rotterdam
             </p>
 
             <h1 className="mb-8 font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
@@ -224,14 +225,14 @@ export default function HomePage() {
                 >
                   Website laten maken
                 </Link>
-                {" · "}
+                {" Â· "}
                 <Link
                   href="/seo-rotterdam"
                   className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
                 >
                   SEO Rotterdam
                 </Link>
-                {" · "}
+                {" Â· "}
                 <Link
                   href="/pakketten"
                   className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
@@ -250,14 +251,14 @@ export default function HomePage() {
                 >
                   Over mij
                 </Link>
-                {" · "}
+                {" Â· "}
                 <Link
                   href="/wordpress-naar-nextjs"
                   className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
                 >
                   WordPress naar Next.js
                 </Link>
-                {" · "}
+                {" Â· "}
                 <Link
                   href="/nextjs-vs-wordpress"
                   className="underline decoration-transparent underline-offset-4 transition-colors hover:text-brand-accessible hover:decoration-brand-accessible"
@@ -358,6 +359,8 @@ export default function HomePage() {
 
       <USPGrid />
 
+      <WebsiteCheckSection />
+
       <section className="bg-background-secondary py-24 sm:py-32">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <div className="mb-12 text-center">
@@ -383,3 +386,4 @@ export default function HomePage() {
     </>
   );
 }
+
