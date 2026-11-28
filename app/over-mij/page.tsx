@@ -121,7 +121,7 @@ export default function OverMijPage() {
               Over mij
             </p>
             <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-foreground leading-[1.05] tracking-tight mb-8">
-              Ron — WebBoost Partner | <span className="text-brand italic">webbouwer in Rotterdam</span>
+              Ik ben Ron | <span className="text-brand italic">webbouwer in Rotterdam</span>
             </h1>
 
             {/* Kort profiel */}
