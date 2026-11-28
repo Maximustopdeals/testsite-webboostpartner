@@ -143,7 +143,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-7">
             <p className="mb-6 font-sans text-xs font-bold uppercase tracking-[0.25em] text-brand-accessible">
-              WebBoost Partner Â· Rotterdam
+              WebBoost Partner · Rotterdam
             </p>
 
             <h1 className="mb-8 font-serif text-5xl leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
