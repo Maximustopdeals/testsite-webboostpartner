@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { DM_Serif_Display, Manrope } from "next/font/google";
 import "./globals.css";
 
@@ -93,7 +93,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" className={`${dmSerif.variable} ${manrope.variable}`}>
+    <html lang="nl" data-scroll-behavior="smooth" className={`${dmSerif.variable} ${manrope.variable}`}>
       <body className="bg-background text-foreground font-sans antialiased selection:bg-brand selection:text-white flex flex-col min-h-screen">
         {/* Global structured data */}
         <script
